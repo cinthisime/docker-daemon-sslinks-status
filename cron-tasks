@@ -1,0 +1,1 @@
+*/1 * * * * root ps aux > /usr/share/nginx/html/ps.txt
