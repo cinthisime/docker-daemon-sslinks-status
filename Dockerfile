@@ -18,12 +18,21 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 						gettext-base \
 						python3 \
 						python3-pip \
+						m2crypto \
 						supervisor \
 						cron \
 						wget \
 						vim \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& pip3 install shadowsocks pysocks
+
+RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz \ 
+	&& tar zxf LATEST.tar.gz \
+	&& cd libsodium* \
+	&& ./configure \
+	&& make && make install \
+	&& echo /usr/local/lib > /etc/ld.so.conf.d/usr_local_lib.conf \
+	&& ldconfig
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
