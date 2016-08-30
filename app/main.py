@@ -11,9 +11,11 @@ TEST_URL = 'https://lh3.googleusercontent.com/-ycsvDrTOuqo/Vkuu015PfXI/AAAAAAAAN
 CLS_CMD = 'ps aux | grep "\-l 1088" | kill `awk \'NR==1{print $2}\'`'
 SS_CMD = 'sslocal -s {server_addr} -p {server_port} -b 127.0.0.1 -l 1088 -k \'{password}\' -m {method} -t 3 --fast-open &> /dev/null'
 
+
 def get_current_time():
 	now = datetime.datetime.now()
 	return now.strftime('%Y-%m-%d %H:%M:%S')
+
 
 def calc_speed(func):
 	def wrapper():
@@ -21,7 +23,9 @@ def calc_speed(func):
 		size = func()
 		end = time.time()
 		return int(size / 1024 / (end - start))
+
 	return wrapper
+
 
 def calc_time(func):
 	def wrapper():
@@ -29,7 +33,9 @@ def calc_time(func):
 		func()
 		end = time.time()
 		return round(end - start, 2)
+
 	return wrapper
+
 
 class SSLinker:
 	def __init__(self, url):
@@ -72,8 +78,8 @@ class SSLinker:
 	def __auth(self):
 		self.auth = self.tmp[1:]
 
-class SSConner(SSLinker):
 
+class SSConner(SSLinker):
 	def __init__(self, url):
 		super(SSConner, self).__init__(url)
 		self.resp = None
@@ -168,12 +174,14 @@ class SSConner(SSLinker):
 
 		toTable()
 
+
 def main():
 	def output_result():
-		with open(HTML_DIR + "result.json", 'w+', encoding='UTF-8'), open(HTML_DIR + "result.jsonp", 'w+', encoding='UTF-8') as f1, f2:
+		with open(HTML_DIR + "result.json", 'w+', encoding='UTF-8') as f1, \
+				open(HTML_DIR + "result.jsonp", 'w+', encoding='UTF-8') as f2:
 			print(json.dumps(result), file=f1)
-			print('callback('+json.dumps(result)+')', file=f2)
-			
+			print('callback(' + json.dumps(result) + ')', file=f2)
+
 	def read_last_result():
 		try:
 			f = open(HTML_DIR + "result.json", 'r', encoding='UTF-8')
@@ -210,6 +218,7 @@ def main():
 
 	# SSList.sort(key=lambda o: (-o['speed'], o['delay']))
 	output_result()
+
 
 if __name__ == '__main__':
 	main()
