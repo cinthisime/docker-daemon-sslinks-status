@@ -170,13 +170,10 @@ class SSConner(SSLinker):
 
 def main():
 	def output_result():
-		f = open(HTML_DIR + "result.json", 'w+', encoding='UTF-8')
-		fp = open(HTML_DIR + "result.jsonp", 'w+', encoding='UTF-8')
-		result = {"update": get_current_time(), "ssList": SSList}
-		resultp = {"update": get_current_time(), "ssList": SSList}
-		print(json.dumps(result), file=f)
-		print('callback('+json.dumps(result)+')', file=f)
-
+		with open(HTML_DIR + "result.json", 'w+', encoding='UTF-8'), open(HTML_DIR + "result.jsonp", 'w+', encoding='UTF-8') as f1, f2:
+			print(json.dumps(result), file=f1)
+			print('callback('+json.dumps(result)+')', file=f2)
+			
 	def read_last_result():
 		try:
 			f = open(HTML_DIR + "result.json", 'r', encoding='UTF-8')
