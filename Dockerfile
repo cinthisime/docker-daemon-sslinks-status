@@ -47,4 +47,6 @@ RUN chmod 0600 /etc/cron.d/cron-tasks
 
 RUN touch /var/log/cron.log
 
+RUN touch /usr/share/nginx/html/result.log
+
 ENTRYPOINT ["/usr/bin/supervisord"]
