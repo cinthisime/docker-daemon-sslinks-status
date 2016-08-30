@@ -20,6 +20,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 						python3-pip \
 						m2crypto \
 						gcc \
+						build-essential \
 						supervisor \
 						cron \
 						wget \
