@@ -3,11 +3,12 @@
 import sys, os, signal, subprocess, socks, socket, time, re, http.client, datetime, json
 from urllib import request
 
-# HTML_DIR = '/usr/share/nginx/html/'
-HTML_DIR = ''
+HTML_DIR = '/usr/share/nginx/html/'
+# HTML_DIR = ''
 
-# TEST_URL = 'https://lh3.googleusercontent.com/-ycsvDrTOuqo/Vkuu015PfXI/AAAAAAAAN-o/G8EzTXj65Dg/w3840-h2160/london-city-chromecast-wallpaper-4k.jpg'
-TEST_URL = 'https://www.google.com/'
+TEST_URL = 'https://lh3.googleusercontent.com/-ycsvDrTOuqo/Vkuu015PfXI/AAAAAAAAN-o/G8EzTXj65Dg/w3840-h2160/london-city-chromecast-wallpaper-4k.jpg'
+# TEST_URL = 'https://www.google.com/'
+
 CLS_CMD = 'ps aux | grep "\-l 1088" | kill `awk \'NR==1{print $2}\'`'
 SS_CMD = 'sslocal -s {server_addr} -p {server_port} -b 127.0.0.1 -l 1088 -k \'{password}\' -m {method} -t 3 --fast-open &> /dev/null'
 
