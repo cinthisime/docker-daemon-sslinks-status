@@ -16,7 +16,7 @@ RUN apt-get update \
 						cron \
 						wget \
 						vim \
-	&& rm -rf /var/lib/apt/lists/* \
+						curl \
 	&& pip3 install shadowsocks pysocks
 
 RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz \ 
