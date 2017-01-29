@@ -8,6 +8,7 @@ RUN apt-get update \
 						nginx \
 						python3 \
 						python3-pip \
+						python3-setuptools \
 						m2crypto \
 						gcc \
 						build-essential \
