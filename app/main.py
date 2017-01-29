@@ -6,7 +6,8 @@ from urllib import request
 HTML_DIR = '/usr/share/nginx/html/'
 # HTML_DIR = ''
 
-TEST_URL = 'https://lh3.googleusercontent.com/-ycsvDrTOuqo/Vkuu015PfXI/AAAAAAAAN-o/G8EzTXj65Dg/w3840-h2160/london-city-chromecast-wallpaper-4k.jpg'
+TEST_URL = 'http://lh3.googleusercontent.com/-ycsvDrTOuqo/Vkuu015PfXI/AAAAAAAAN-o/G8EzTXj65Dg/w3840-h2160/london-city-chromecast-wallpaper-4k.jpg'
+# TEST_URL = 'https://lh3.googleusercontent.com/-ycsvDrTOuqo/Vkuu015PfXI/AAAAAAAAN-o/G8EzTXj65Dg/w3840-h2160/london-city-chromecast-wallpaper-4k.jpg'
 # TEST_URL = 'https://www.google.com/'
 
 CLS_CMD = 'ps aux | grep "\-l 1088" | kill `awk \'NR==1{print $2}\'`'
@@ -200,7 +201,7 @@ def main():
 	SSList = []
 	last_result = {}
 	read_last_result()
-	resp = request.urlopen("http://blog.heycis.com/manage/ss.txt")
+	resp = request.urlopen("http://ssr.webutu.com/ssr.txt")
 	content = resp.read().decode("utf-8").split('\n')
 	for line in content:
 		if line:
